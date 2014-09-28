@@ -1,0 +1,3 @@
+[Host]
+port = :2222
+path = /Users/sean.schulte/code/go/src/github.com/sirsean/adamwestum
