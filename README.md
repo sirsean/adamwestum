@@ -98,12 +98,12 @@ echo "Compiling"
 cd adamwestum; GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o adamwestum.linux; cd ..
 echo "Uploading"
 tar cvf adamwestum.tar adamwestum/adamwestum.linux adamwestum/template adamwestum/static adamwestum/quotes
-ssh -l sirsean adamwestum.link mkdir -p adamwestum
-ssh -l sirsean adamwestum.link rm adamwestum/adamwestum.linux
-scp adamwestum.tar sirsean@adamwestum.link:adamwestum.tar
-ssh -l sirsean adamwestum.link tar xvf adamwestum.tar
+ssh -l sirsean adamwestum.com mkdir -p adamwestum
+ssh -l sirsean adamwestum.com rm adamwestum/adamwestum.linux
+scp adamwestum.tar sirsean@adamwestum.com:adamwestum.tar
+ssh -l sirsean adamwestum.com tar xvf adamwestum.tar
 echo "Restarting"
-ssh -l root adamwestum.link systemctl restart adamwestum.service
+ssh -l root adamwestum.com systemctl restart adamwestum.service
 echo "Deployed"
 ```
 
