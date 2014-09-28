@@ -15,12 +15,7 @@ import (
 func main() {
 	log.Printf("Starting Up")
 
-	adamWestFile, err := os.Open(fmt.Sprintf("%s/quotes/adamwest", config.Get().Host.Path))
-	if err != nil {
-		log.Fatal("Could not read adamwest quotes")
-	}
-	defer adamWestFile.Close()
-	service.Load(adamWestFile)
+	loadQuotes()
 
 	router := mux.NewRouter()
 	router.HandleFunc("/", controller.Index).Methods("GET")
@@ -32,4 +27,13 @@ func main() {
 
 	port := config.Get().Host.Port
 	log.Fatal(http.ListenAndServe(port, nil))
+}
+
+func loadQuotes() {
+	adamWestFile, err := os.Open(fmt.Sprintf("%s/quotes/adamwest", config.Get().Host.Path))
+	if err != nil {
+		log.Fatal("Could not read adamwest quotes")
+	}
+	defer adamWestFile.Close()
+	service.Load(adamWestFile)
 }
