@@ -21,9 +21,6 @@
     created: function() {
       this.lines = [];
     },
-    load: function() {
-      this.$.ajax.go();
-    },
     linesLoaded: function() {
       var response = this.$.ajax.response;
       if (response == null) {
