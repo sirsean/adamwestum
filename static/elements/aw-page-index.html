@@ -19,6 +19,7 @@
     }
     .results {
       padding: 15px 50px 15px 50px;
+      margin: 0 auto;
     }
     </style>
 
@@ -28,8 +29,9 @@
     </aw-lines-service>
 
     <paper-slider min="0" max="100" value="{{number}}"></paper-slider>
+    <paper-slider min="100" max="1024" value="{{width}}"></paper-slider>
 
-    <div class="results">
+    <div class="results" style="width: {{width}}px;">
       <template repeat="{{line in lines}}">
         <span>{{line}}</span>
       </template>
@@ -39,6 +41,7 @@
   Polymer("aw-page-index", {
     ready: function() {
       this.number = 5;
+      this.width = 640;
     }
   });
   </script>
